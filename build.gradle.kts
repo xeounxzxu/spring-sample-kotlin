@@ -34,7 +34,8 @@ dependencies {
 
     //thymeleaf
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:2.5.5")
-
+    //looger
+    implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
 }
 
 tasks.withType<KotlinCompile> {
