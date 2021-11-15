@@ -1,0 +1,9 @@
+${AnsiColor.BRIGHT_GREEN}    __ __                 _             ${AnsiColor.BRIGHT_RED}    ____             _
+${AnsiColor.BRIGHT_GREEN}   / //_/___  ____  _____(_)___  ____ _ ${AnsiColor.BRIGHT_RED}   / __ )____ ______(_)____
+${AnsiColor.BRIGHT_GREEN}  / ,< / __ \/ __ \/ ___/ / __ \/ __ `/ ${AnsiColor.BRIGHT_RED}  / __  / __ `/ ___/ / ___/
+${AnsiColor.BRIGHT_GREEN} / /| / /_/ / /_/ / /  / / / / / /_/ /  ${AnsiColor.BRIGHT_RED} / /_/ / /_/ (__  ) / /__
+${AnsiColor.BRIGHT_GREEN}/_/ |_\____/ .___/_/  /_/_/ /_/\__, /   ${AnsiColor.BRIGHT_RED}/_____/\__,_/____/_/\___/
+${AnsiColor.BRIGHT_GREEN}          /_/                 /____/    ${AnsiColor.BRIGHT_RED}
+
+${AnsiColor.BRIGHT_CYAN}:: Gon-Zo Project 👊 :: Running Kopring Boot By Basic ${spring-boot.version} ::
+:: https://github.com/Gon-Zo/kopring-app∂ :: ${AnsiColor.BRIGHT_BLACK}
