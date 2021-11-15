@@ -1,2 +1,11 @@
 server:
   port: 5050
+
+spring:
+  # thymeleaf setting
+  thymeleaf:
+    mode: HTML
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    check-template-location: true

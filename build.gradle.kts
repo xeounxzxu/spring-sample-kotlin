@@ -31,6 +31,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    //thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:2.5.5")
+
 }
 
 tasks.withType<KotlinCompile> {
