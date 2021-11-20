@@ -34,6 +34,7 @@ dependencies {
 
     //thymeleaf
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:2.5.5")
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
     //looger
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
 }
