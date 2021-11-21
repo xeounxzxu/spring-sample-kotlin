@@ -14,7 +14,7 @@ class JasyptTest {
 
         jasypt = StandardPBEStringEncryptor()
 
-        jasypt!!.setPassword("")
+        jasypt!!.setPassword("test1")
 
         jasypt!!.setAlgorithm("PBEWithMD5AndDES")
 
@@ -25,9 +25,9 @@ class JasyptTest {
     fun decodeTest() {
 
         var array: Array<String> = arrayOf(
-            "",
-            "",
-            ""
+            "a",
+            "v",
+            "c"
         )
 
         pritText(array, jasypt!!)
