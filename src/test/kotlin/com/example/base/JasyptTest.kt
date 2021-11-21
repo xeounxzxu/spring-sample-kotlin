@@ -9,6 +9,12 @@ class JasyptTest {
 
     private var jasypt: StandardPBEStringEncryptor? = null
 
+    @Test
+    @DisplayName("테스트 케이스 테스트")
+    final fun printTestCase() {
+        println(">>>>>>>>>>>>> success")
+    }
+
     @BeforeEach
     fun before() {
 
@@ -22,7 +28,7 @@ class JasyptTest {
 
     @Test
     @DisplayName("jaspt 암복호화 테스트")
-    fun decodeTest() {
+    final fun decodeTest() {
 
         var array: Array<String> = arrayOf(
             "a",
