@@ -25,9 +25,9 @@ class JasyptTest {
     fun decodeTest() {
 
         var array: Array<String> = arrayOf(
-            "jdbc:mysql://ec2-3-36-123-250.ap-northeast-2.compute.amazonaws.com:13306/app1",
-            "root",
-            "1234"
+            "",
+            "",
+            ""
         )
 
         pritText(array, jasypt!!)
