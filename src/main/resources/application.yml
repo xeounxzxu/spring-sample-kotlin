@@ -1,7 +1,7 @@
 server:
   port: 5050
 
-### thymeleaf setting
+### thymeleaf Setting
 thymeleaf:
   mode: HTML
   prefix: classpath:templates/
@@ -10,3 +10,7 @@ thymeleaf:
   check-template-location: true
   character-encoding: UTF-8
 
+### Application Setting
+spring:
+  application:
+    name: kopring-basic-app
