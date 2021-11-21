@@ -14,3 +14,6 @@ thymeleaf:
 spring:
   application:
     name: kopring-basic-app
+  jpa:
+    hibernate:
+      ddl-auto:  create-drop
