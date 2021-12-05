@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test
 internal class HelloResourceTest {
 
     @Test
-    @DisplayName("hello 단어 프린트 시키기")
-    fun printByHello() {
-        println("hello = success")
+    @DisplayName("syso test")
+    fun showTest() {
+        println(">>>>>>>>>> test")
     }
 
 }
