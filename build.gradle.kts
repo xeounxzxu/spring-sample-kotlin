@@ -41,8 +41,10 @@ dependencies {
 
     // jasypt
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:1.17")
+
     // mysql
     implementation("mysql:mysql-connector-java")
+
     // jpa
     implementation( "org.springframework.boot:spring-boot-starter-data-jpa")
 

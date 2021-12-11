@@ -15,5 +15,20 @@ spring:
   application:
     name: kopring-basic-app
   jpa:
+    # Show Console SQL Query
+    show-sql: true
     hibernate:
       ddl-auto:  create-drop
+      # format SQL Logger
+      format_sql: true
+      # Hibernate Statistics Logger
+      properties:
+        hibernate:
+          generate_statistics: true
+
+# Statistics Logger
+logging:
+  level:
+    org:
+      hibernate:
+        stat: debug
