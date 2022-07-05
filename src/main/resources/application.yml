@@ -1,5 +1,5 @@
-server:
-  port: 5050
+#server:
+#  port: 5050
 
 ### thymeleaf Setting
 thymeleaf:
@@ -14,21 +14,27 @@ thymeleaf:
 spring:
   application:
     name: kopring-basic-app
+  h2:
+    console:
+      enabled: true
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://localhost:9095/mem:testdb;DB_CLOSE_DELAY=-1
+      username: sa
+      password:
   jpa:
-    # Show Console SQL Query
-    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
     hibernate:
-      ddl-auto:  create-drop
-      # format SQL Logger
-      format_sql: true
-      # Hibernate Statistics Logger
-      properties:
-        hibernate:
-          generate_statistics: true
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
 
 # Statistics Logger
 logging:
   level:
     org:
-      hibernate:
-        stat: debug
+      hibernate.type.descriptor.sql.BasicBinder: TRACE

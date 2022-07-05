@@ -3,7 +3,6 @@ package com.example.base.domain
 import javax.persistence.*
 
 @Entity
-@Table(name = "k_user")
 class User {
 
     @Id
