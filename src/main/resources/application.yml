@@ -1,14 +1,14 @@
 #server:
 #  port: 5050
 
-### thymeleaf Setting
-thymeleaf:
-  mode: HTML
-  prefix: classpath:templates/
-  suffix: .html
-  cache: false
-  check-template-location: true
-  character-encoding: UTF-8
+#### thymeleaf Setting
+#thymeleaf:
+#  mode: HTML
+#  prefix: classpath:templates/
+#  suffix: .html
+#  cache: false
+#  check-template-location: true
+#  character-encoding: UTF-8
 
 ### Application Setting
 spring:
