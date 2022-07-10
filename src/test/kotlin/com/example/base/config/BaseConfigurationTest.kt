@@ -1,5 +1,8 @@
 package com.example.base.config
 
+import com.example.base.config.base.item.Item
+import com.example.base.config.base.item.MyItem
+import com.example.base.config.base.item.OtherItem
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -16,9 +19,9 @@ internal class BaseConfigurationTest {
     fun init() {
 
         context = AnnotationConfigApplicationContext().apply {
-                this.scan("com.example.base.config")
-                this.refresh()
-            }
+            this.scan("com.example.base.config.base")
+            this.refresh()
+        }
     }
 
     @Test
@@ -26,4 +29,23 @@ internal class BaseConfigurationTest {
         val defaultYn = context?.getBean("defaultYn") as Boolean
         Assertions.assertThat(defaultYn::class.java).isEqualTo(Boolean::class.java)
     }
+
+    @Test
+    fun `myItem Bean 등록 유무 체크`() {
+
+        val myItem = context?.getBean("myItem") as Item
+
+        Assertions.assertThat(myItem::class.java).isEqualTo(MyItem::class.java)
+        org.junit.jupiter.api.Assertions.assertEquals(myItem.getName(), "my_item")
+    }
+
+    @Test
+    fun `otherItem Bean 등록 유무 체크`() {
+
+        val myItem = context?.getBean("otherItem") as Item
+
+        Assertions.assertThat(myItem::class.java).isEqualTo(OtherItem::class.java)
+        org.junit.jupiter.api.Assertions.assertEquals(myItem.getName(), "other_item")
+    }
+
 }
