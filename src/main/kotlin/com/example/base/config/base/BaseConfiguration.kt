@@ -1,4 +1,4 @@
-package com.example.base.config
+package com.example.base.config.base
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

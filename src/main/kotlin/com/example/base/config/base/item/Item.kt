@@ -1,4 +1,4 @@
-package com.example.base.config.base
+package com.example.base.config.base.item
 
 interface Item {
 
