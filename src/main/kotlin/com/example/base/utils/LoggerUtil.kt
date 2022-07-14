@@ -1,8 +1,10 @@
 package com.example.base.utils
 
 import mu.KotlinLogging
+import org.springframework.stereotype.Component
 
-object LoggerUtils {
+@Component
+object LoggerUtil {
 
     val logger = KotlinLogging.logger {}
 
