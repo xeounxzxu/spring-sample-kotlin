@@ -9,6 +9,11 @@ class ItemController constructor(
     private val itemService: ItemService
 ) {
 
+    @GetMapping("/test")
+    fun test() {
+        throw NullPointerException()
+    }
+
     @GetMapping("/api/hello")
     fun showByString(): String = "hello"
 
