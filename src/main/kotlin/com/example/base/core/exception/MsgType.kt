@@ -1,4 +1,4 @@
-package com.example.base.enums
+package com.example.base.core.exception
 
 enum class MsgType constructor(
     private var code: String

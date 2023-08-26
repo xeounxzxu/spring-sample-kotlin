@@ -1,4 +1,4 @@
-package com.example.base.web.dto
+package com.example.base.dto
 
 data class TempDTO(var title: String, var content: String)
 

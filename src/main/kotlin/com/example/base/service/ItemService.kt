@@ -1,6 +1,6 @@
 package com.example.base.service
 
-import com.example.base.config.base.item.Item
+import com.example.base.domain.item.Item
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 

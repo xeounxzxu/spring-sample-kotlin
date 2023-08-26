@@ -1,9 +1,7 @@
-package com.example.base.config
+package com.example.base.core.exception
 
-import com.example.base.enums.MsgType
-import com.example.base.utils.I18nMsgUtil
-import com.example.base.utils.LoggerUtil
-import com.example.base.web.dto.MsgDTO
+import com.example.base.core.util.I18nMsgUtil
+import com.example.base.core.util.LoggerUtil
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus

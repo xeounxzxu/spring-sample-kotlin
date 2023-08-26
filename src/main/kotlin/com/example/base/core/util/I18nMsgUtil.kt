@@ -1,4 +1,4 @@
-package com.example.base.utils
+package com.example.base.core.util
 
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder

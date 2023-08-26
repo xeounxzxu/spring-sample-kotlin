@@ -1,8 +1,8 @@
 package com.example.base.config
 
-import com.example.base.config.base.item.Item
-import com.example.base.config.base.item.MyItem
-import com.example.base.config.base.item.OtherItem
+import com.example.base.domain.item.Item
+import com.example.base.domain.item.MyItem
+import com.example.base.domain.item.OtherItem
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

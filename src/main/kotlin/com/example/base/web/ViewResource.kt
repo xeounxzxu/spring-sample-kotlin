@@ -1,6 +1,6 @@
 package com.example.base.web
 
-import com.example.base.web.dto.TempDTO
+import com.example.base.dto.TempDTO
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping

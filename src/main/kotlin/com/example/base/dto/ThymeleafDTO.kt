@@ -1,4 +1,4 @@
-package com.example.base.web.dto
+package com.example.base.dto
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding

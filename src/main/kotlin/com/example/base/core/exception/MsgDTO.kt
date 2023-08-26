@@ -1,4 +1,4 @@
-package com.example.base.web.dto
+package com.example.base.core.exception
 
 data class MsgDTO constructor(
     private var code: String?, private var message: String?

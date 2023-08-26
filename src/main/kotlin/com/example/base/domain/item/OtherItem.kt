@@ -1,4 +1,4 @@
-package com.example.base.config.base.item
+package com.example.base.domain.item
 
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component

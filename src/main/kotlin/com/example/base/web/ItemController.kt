@@ -1,8 +1,7 @@
 package com.example.base.web
 
-import com.example.base.enums.MsgType
 import com.example.base.service.ItemService
-import com.example.base.utils.I18nMsgUtil
+import com.example.base.core.util.I18nMsgUtil
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 

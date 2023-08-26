@@ -36,8 +36,10 @@ spring:
 # Statistics Logger
 logging:
   level:
+    root: debug
     org:
       hibernate.type.descriptor.sql.BasicBinder: TRACE
+
 
 
 
