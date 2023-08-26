@@ -1,8 +1,8 @@
 package com.example.base.domain
 
-import javax.persistence.*
+import jakarta.persistence.*
 
-@Entity
+@Entity(name = "USERS")
 class User {
 
     @Id
