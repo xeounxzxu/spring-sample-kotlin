@@ -79,12 +79,3 @@ class PublicRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
         }
     }
 }
-
-class ComHeader()
-
-fun HttpServletRequest.toComHeader(): ComHeader {
-
-    this.requestURI
-
-    return ComHeader()
-}
