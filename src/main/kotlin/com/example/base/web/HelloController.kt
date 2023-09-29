@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 data class HelloDto(val kr: String = "안녕", val en: String = "hello")
 
 @RestController
-@RequestMapping("v1", "hello-prefix")
+@RequestMapping("v1")
 class HelloController {
 
     @PublicAPI
