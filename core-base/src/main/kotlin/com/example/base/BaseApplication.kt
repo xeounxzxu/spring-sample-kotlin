@@ -8,6 +8,6 @@ import org.springframework.boot.runApplication
 class BaseApplication
 
 fun main(args: Array<String>) {
-    runApplication<BaseApplication>(*args)
+    runApplication<com.example.base.BaseApplication>(*args)
 }
 
