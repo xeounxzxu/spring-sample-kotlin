@@ -1,15 +1,14 @@
 rootProject.name = "kotlin-core"
 
 include(
-    ":core-base"
+    ":core-base",
+    ":virtual-thread"
 )
 
 pluginManagement {
     val kotlinVersion: String by settings
     val springBootVersion: String by settings
     val springDependencyManagementVersion: String by settings
-    val asciidoctorConvertVersion: String by settings
-    val ktlintVersion: String by settings
 
     resolutionStrategy {
         eachPlugin {
