@@ -2,7 +2,8 @@ rootProject.name = "kotlin-core"
 
 include(
     ":core-base",
-    ":virtual-thread"
+    ":virtual-thread",
+    ":kotest-sample"
 )
 
 pluginManagement {
