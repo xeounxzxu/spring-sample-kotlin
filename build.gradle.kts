@@ -5,6 +5,7 @@ plugins {
     kotlin("plugin.spring") apply false
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management")
+    id("org.asciidoctor.jvm.convert") apply false
 }
 
 
@@ -22,6 +23,7 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
+    apply(plugin = "org.asciidoctor.jvm.convert")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
