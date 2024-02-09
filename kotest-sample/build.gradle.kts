@@ -20,5 +20,9 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core-jvm:${property("kotestVersion")}")
     testImplementation("io.kotest:kotest-property:${property("kotestVersion")}")
     testImplementation("io.kotest.extensions:kotest-extensions-spring:${property("extensionsSpringVersion")}")
+
+
+    // https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
+    testImplementation("io.rest-assured:spring-mock-mvc:5.4.0")
 }
 
