@@ -1,4 +1,4 @@
-package com.example.base.config
+package com.example.virtualthread.config
 
 import org.apache.coyote.ProtocolHandler
 import org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
