@@ -14,9 +14,10 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core-jvm:${property("kotestVersion")}")
     testImplementation("io.kotest:kotest-property:${property("kotestVersion")}")
     testImplementation("io.kotest.extensions:kotest-extensions-spring:${property("extensionsSpringVersion")}")
+
     // mockk dependencies add
     testImplementation("io.mockk:mockk:1.13.9")
 
-    testImplementation(project(":support:test-restdocs"))
+    testImplementation(project(":test:api-docs"))
 }
 

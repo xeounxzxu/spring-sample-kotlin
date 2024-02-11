@@ -13,7 +13,9 @@ include(
 )
 
 include(
-    ":test:kotest"
+    ":test",
+    ":test:kotest",
+    ":test:api-docs"
 )
 
 include(
