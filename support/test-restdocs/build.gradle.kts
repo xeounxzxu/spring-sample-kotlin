@@ -8,9 +8,6 @@ tasks.getByName("jar") {
 
 dependencies {
 
-//    // https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
-//    implementation("io.rest-assured:spring-mock-mvc:5.4.0")
-
     compileOnly("jakarta.servlet:jakarta.servlet-api")
     compileOnly("org.springframework.boot:spring-boot-starter-test")
 
