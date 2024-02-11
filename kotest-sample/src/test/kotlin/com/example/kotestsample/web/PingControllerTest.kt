@@ -1,9 +1,9 @@
 package com.example.kotestsample.web
 
-import com.example.kotestsample.extensions.RestDocTestExtension
-import com.example.kotestsample.extensions.converter
-import com.example.kotestsample.extensions.docsRootPath
-import com.example.kotestsample.extensions.mockMvc
+import com.example.example.restdocs.RestDocTestExtension
+import com.example.example.restdocs.converter
+import com.example.example.restdocs.docsRootPath
+import com.example.example.restdocs.mockMvc
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.extensions.spring.SpringExtension
 import io.restassured.http.ContentType

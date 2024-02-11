@@ -1,9 +1,9 @@
 package com.example.kotestsample.web
 
 
-import com.example.kotestsample.extensions.RestDocExtension
-import com.example.kotestsample.extensions.docsRootPath
-import com.example.kotestsample.extensions.mockMvc
+import com.example.example.restdocs.RestDocExtension
+import com.example.example.restdocs.docsRootPath
+import com.example.example.restdocs.mockMvc
 import com.example.kotestsample.service.TodoListService
 import com.example.kotestsample.service.model.TodoListModel
 import io.kotest.core.spec.style.BehaviorSpec

@@ -6,6 +6,10 @@ include(
     ":kotest-sample"
 )
 
+include(
+    ":support:test-restdocs"
+)
+
 pluginManagement {
     val kotlinVersion: String by settings
     val springBootVersion: String by settings

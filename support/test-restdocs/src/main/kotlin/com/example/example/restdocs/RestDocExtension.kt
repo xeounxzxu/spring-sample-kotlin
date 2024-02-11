@@ -1,4 +1,4 @@
-package com.example.kotestsample.extensions
+package com.example.example.restdocs
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.kotest.core.extensions.TestCaseExtension
@@ -19,7 +19,7 @@ import kotlin.coroutines.AbstractCoroutineContextElement
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.coroutineContext
 
-const val docsRootPath : String = "docs/"
+const val docsRootPath: String = "docs/"
 
 val RestDocExtension = RestDocTestExtension()
 
@@ -73,4 +73,3 @@ class RestDocTestExtension : TestCaseExtension {
         }
     }
 }
-
