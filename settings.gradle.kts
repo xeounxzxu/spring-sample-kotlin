@@ -1,7 +1,11 @@
 rootProject.name = "kotlin-core"
 
 include(
-    ":core-base",
+    ":core:basic",
+    ":core:dynamic-bean"
+)
+
+include(
     ":virtual-thread",
     ":kotest-sample"
 )
