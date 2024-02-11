@@ -30,7 +30,10 @@ subprojects {
     }
 
     dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-web")
+        // fixme: gradle 내부의 function 을 고민 해보장!!
+        if (!project.name.contains("callback")) {
+            implementation("org.springframework.boot:spring-boot-starter-web")
+        }
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         testImplementation("org.springframework.boot:spring-boot-starter-test")

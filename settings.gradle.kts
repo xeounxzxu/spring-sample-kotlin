@@ -7,6 +7,11 @@ include(
 )
 
 include(
+//    ":r2dbc",
+    ":r2dbc:callback"
+)
+
+include(
     ":test:kotest"
 )
 
