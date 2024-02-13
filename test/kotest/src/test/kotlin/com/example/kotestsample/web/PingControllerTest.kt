@@ -1,9 +1,9 @@
 package com.example.kotestsample.web
 
+import com.example.example.extension.converter
+import com.example.example.extension.mockMvc
+import com.example.example.restdocs.DOCS_ROOT_PATH
 import com.example.example.restdocs.RestDocTestExtension
-import com.example.example.restdocs.converter
-import com.example.example.restdocs.docsRootPath
-import com.example.example.restdocs.mockMvc
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.extensions.spring.SpringExtension
 import io.restassured.http.ContentType
@@ -36,7 +36,7 @@ class PingControllerTest : FunSpec() {
                     .statusCode(200)
                     .apply(
                         document(
-                            "${docsRootPath}/core/api-ping",
+                            "${DOCS_ROOT_PATH}/core/api-ping",
                             responseFields(
                                 fieldWithPath("status")
                                     .type(JsonFieldType.STRING).description("상태")

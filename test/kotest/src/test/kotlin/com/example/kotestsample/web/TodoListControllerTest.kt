@@ -1,9 +1,9 @@
 package com.example.kotestsample.web
 
 
+import com.example.example.extension.mockMvc
+import com.example.example.restdocs.DOCS_ROOT_PATH
 import com.example.example.restdocs.RestDocExtension
-import com.example.example.restdocs.docsRootPath
-import com.example.example.restdocs.mockMvc
 import com.example.kotestsample.service.TodoListService
 import com.example.kotestsample.service.model.TodoListModel
 import io.kotest.core.spec.style.BehaviorSpec
@@ -57,7 +57,7 @@ class TodoListControllerTest : BehaviorSpec() {
                         .statusCode(HttpStatus.OK.value())
                         .apply(
                             document(
-                                "${docsRootPath}/todo-list/get-todo-list",
+                                "${DOCS_ROOT_PATH}/todo-list/get-todo-list",
                                 responseFields(
                                     fieldWithPath("list")
                                         .type(JsonFieldType.ARRAY)
@@ -97,7 +97,7 @@ class TodoListControllerTest : BehaviorSpec() {
                     call.then()
                         .statusCode(HttpStatus.NO_CONTENT.value())
                         .apply(
-                            document("${docsRootPath}/todo-list/remove"),
+                            document("${DOCS_ROOT_PATH}/todo-list/remove"),
                         )
                 }
             }
