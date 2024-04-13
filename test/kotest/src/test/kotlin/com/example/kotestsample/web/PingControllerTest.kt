@@ -13,12 +13,10 @@ import org.springframework.restdocs.payload.JsonFieldType
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 
-
 @SpringBootTest(
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 )
 class PingControllerTest : FunSpec() {
-
     private val controller = PingController()
 
     init {
@@ -39,12 +37,11 @@ class PingControllerTest : FunSpec() {
                             "${DOCS_ROOT_PATH}/core/api-ping",
                             responseFields(
                                 fieldWithPath("status")
-                                    .type(JsonFieldType.STRING).description("상태")
-                            )
-                        )
+                                    .type(JsonFieldType.STRING).description("상태"),
+                            ),
+                        ),
                     )
             }
         }
     }
 }
-

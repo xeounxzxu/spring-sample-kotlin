@@ -19,7 +19,6 @@ suspend fun manualRestDocumentation(): ManualRestDocumentation {
         ?: error("No ManualRestDocumentation defined in this coroutine context")
 }
 
-
 class RestDocTestContextCoroutineContextElement(
     val manualRestDocumentation: ManualRestDocumentation,
 ) : AbstractCoroutineContextElement(Key) {
@@ -27,12 +26,10 @@ class RestDocTestContextCoroutineContextElement(
 }
 
 class RestDocTestExtension : TestCaseExtension {
-
     override suspend fun intercept(
         testCase: TestCase,
-        execute: suspend (TestCase) -> TestResult
+        execute: suspend (TestCase) -> TestResult,
     ): TestResult {
-
         val manualRestDocumentation = ManualRestDocumentation()
 
         return withContext(RestDocTestContextCoroutineContextElement(manualRestDocumentation)) {

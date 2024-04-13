@@ -9,19 +9,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
 class RestExceptionHandler constructor(
-    private val i18nMsgUtil: I18nMsgUtil, private val loggerUtil: LoggerUtil
+    private val i18nMsgUtil: I18nMsgUtil,
+    private val loggerUtil: LoggerUtil,
 ) {
-
     // Exception Handler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception::class)
-    fun handler(e: Exception): MsgDTO = MsgDTO(
-        MsgType.SystemError.getCode(), i18nMsgUtil.getMessage(MsgType.SystemError.getCode())
-    ).run {
-        loggerUtil.logger.info {
-            this.getMessage()
+    fun handler(e: Exception): MsgDTO =
+        MsgDTO(
+            MsgType.SystemError.getCode(),
+            i18nMsgUtil.getMessage(MsgType.SystemError.getCode()),
+        ).run {
+            loggerUtil.logger.info {
+                this.getMessage()
+            }
+            e.printStackTrace()
+            this
         }
-        e.printStackTrace()
-        this
-    }
 }

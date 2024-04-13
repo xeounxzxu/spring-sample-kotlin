@@ -17,17 +17,19 @@ val converter = MappingJackson2HttpMessageConverter(ObjectMapper())
 
 suspend fun mockMvc(
     controller: Any,
-    httpMessageConverter: AbstractJackson2HttpMessageConverter? = converter
+    httpMessageConverter: AbstractJackson2HttpMessageConverter? = converter,
 ): MockMvcRequestSpecification {
-
-    val mockMvc = MockMvcBuilders.standaloneSetup(controller)
-        .apply<StandaloneMockMvcBuilder>(
-            MockMvcRestDocumentation.documentationConfiguration(
-                manualRestDocumentation()
+    val mockMvc =
+        MockMvcBuilders.standaloneSetup(controller)
+            .apply<StandaloneMockMvcBuilder>(
+                MockMvcRestDocumentation.documentationConfiguration(
+                    manualRestDocumentation(),
+                ),
             )
-        )
-        .setMessageConverters(httpMessageConverter).alwaysDo<StandaloneMockMvcBuilder>(MockMvcResultHandlers.print())
-        .build()
+            .setMessageConverters(
+                httpMessageConverter,
+            ).alwaysDo<StandaloneMockMvcBuilder>(MockMvcResultHandlers.print())
+            .build()
 
     return RestAssuredMockMvc.given().mockMvc(mockMvc)
 }

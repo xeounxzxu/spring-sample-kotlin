@@ -9,22 +9,23 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
-import java.util.*
+import java.util.Locale
 
 @Configuration
 class WebMvcConfiguration : DelegatingWebMvcConfiguration() {
-
-    override fun localeResolver() = SessionLocaleResolver()
-        .apply {
-            setDefaultLocale(Locale.KOREA)
-        }
+    override fun localeResolver() =
+        SessionLocaleResolver()
+            .apply {
+                setDefaultLocale(Locale.KOREA)
+            }
 
     @Bean
-    fun localeChangeInterceptor() = LocaleChangeInterceptor()
-        .apply {
-            // 파라미터 이름
-            paramName = "lang"
-        }
+    fun localeChangeInterceptor() =
+        LocaleChangeInterceptor()
+            .apply {
+                // 파라미터 이름
+                paramName = "lang"
+            }
 
     override fun createRequestMappingHandlerMapping(): RequestMappingHandlerMapping {
         return PublicRequestMappingHandlerMapping()

@@ -9,5 +9,3 @@ class DynamicBeanApplication
 fun main(args: Array<String>) {
     runApplication<DynamicBeanApplication>(*args)
 }
-
-

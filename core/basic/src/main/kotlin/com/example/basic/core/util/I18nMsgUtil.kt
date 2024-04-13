@@ -6,18 +6,21 @@ import org.springframework.stereotype.Component
 
 @Component
 class I18nMsgUtil constructor(
-    private val messageSource: MessageSource
+    private val messageSource: MessageSource,
 ) {
+    fun getMessage(code: String): String =
+        messageSource.getMessage(
+            code,
+            arrayOf<String>(),
+            LocaleContextHolder.getLocale(),
+        )
 
-    fun getMessage(code: String): String = messageSource.getMessage(
-        code,
-        arrayOf<String>(),
-        LocaleContextHolder.getLocale()
-    )
-
-    fun getMessage(code: String, args: Array<String>) = messageSource.getMessage(
+    fun getMessage(
+        code: String,
+        args: Array<String>,
+    ) = messageSource.getMessage(
         code,
         args,
-        LocaleContextHolder.getLocale()
+        LocaleContextHolder.getLocale(),
     )
 }

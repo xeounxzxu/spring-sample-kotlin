@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service
 
 @Service("accountService")
 class AccountFactoryService(accountService: List<AccountService>) {
-
     private val serviceMap: Map<AccountType, AccountService> =
         accountService.associateBy { it.getAccountType() }
 
@@ -46,20 +45,21 @@ class TotalAccountService : AccountService {
 }
 
 object AccountFaker {
-
     fun getTotalAccounts(): List<AccountModel> {
         return listOf(
             AccountModel(
-                "03000000", AccountType.TOTAL
-            )
+                "03000000",
+                AccountType.TOTAL,
+            ),
         )
     }
 
     fun getStockAccounts(): List<AccountModel> {
         return listOf(
             AccountModel(
-                "03000000", AccountType.STOCK
-            )
+                "03000000",
+                AccountType.STOCK,
+            ),
         )
     }
 }

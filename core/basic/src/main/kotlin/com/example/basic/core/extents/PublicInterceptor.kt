@@ -8,8 +8,11 @@ import org.springframework.web.servlet.HandlerInterceptor
 private val logger = LoggerFactory.getLogger(PublicInterceptor::class.java)
 
 class PublicInterceptor : HandlerInterceptor {
-
-    override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
+    override fun preHandle(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+        handler: Any,
+    ): Boolean {
         return super.preHandle(request, response, handler)
     }
 }

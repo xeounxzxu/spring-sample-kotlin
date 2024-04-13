@@ -9,17 +9,17 @@ include(
 include(
     ":r2dbc",
     ":r2dbc:callback",
-    ":r2dbc:data"
+    ":r2dbc:data",
 )
 
 include(
     ":test",
     ":test:kotest",
-    ":test:api-docs"
+    ":test:api-docs",
 )
 
 include(
-    ":support:test-restdocs"
+    ":support:test-restdocs",
 )
 
 pluginManagement {

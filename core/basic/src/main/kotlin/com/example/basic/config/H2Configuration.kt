@@ -7,10 +7,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.sql.SQLException
 
-
 @Configuration
 class H2Configuration {
-
     @Bean
     @ConfigurationProperties("spring.datasource.hikari")
     @Throws(SQLException::class)

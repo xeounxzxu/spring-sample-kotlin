@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/ping")
 class PingController {
-
     @GetMapping
-    fun getPong(): Map<String, String> = mapOf(
-        "status" to "Pong"
-    )
+    fun getPong(): Map<String, String> =
+        mapOf(
+            "status" to "Pong",
+        )
 }

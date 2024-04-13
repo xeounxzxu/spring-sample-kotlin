@@ -1,6 +1,5 @@
 package com.example.kotestsample.web
 
-
 import com.example.example.extension.mockMvc
 import com.example.example.restdocs.DOCS_ROOT_PATH
 import com.example.example.restdocs.RestDocExtension
@@ -21,7 +20,6 @@ import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
 
 class TodoListControllerTest : BehaviorSpec() {
-
     init {
 
         extensions(SpringExtension, RestDocExtension)
@@ -30,12 +28,12 @@ class TodoListControllerTest : BehaviorSpec() {
 
         val controller = TodoListController(service)
 
-
         // /v1/todo-list
         Given("유저가 todo 리스트 목록을 조회를 할 때") {
 
-            val given = mockMvc(controller)
-                .contentType(ContentType.JSON)
+            val given =
+                mockMvc(controller)
+                    .contentType(ContentType.JSON)
 
             When("정상적으로 조회가 된다면") {
 
@@ -43,8 +41,9 @@ class TodoListControllerTest : BehaviorSpec() {
                     service.get()
                 } returns TodoListModel.getFaker()
 
-                val call = given
-                    .get("/v1/todo-list")
+                val call =
+                    given
+                        .get("/v1/todo-list")
 
                 then("200 상태 코드 와 response 를 반환 한다") {
 
@@ -65,9 +64,9 @@ class TodoListControllerTest : BehaviorSpec() {
                                     fieldWithPath("list[].title")
                                         .description("제목"),
                                     fieldWithPath("list[].content")
-                                        .description("설명")
-                                )
-                            )
+                                        .description("설명"),
+                                ),
+                            ),
                         )
                 }
             }
@@ -76,8 +75,9 @@ class TodoListControllerTest : BehaviorSpec() {
         // DELETE /v1/todo-list/{id}
         Given("유저가 todo 리스트를 삭제를 할 때") {
 
-            val given = mockMvc(controller)
-                .contentType(ContentType.JSON)
+            val given =
+                mockMvc(controller)
+                    .contentType(ContentType.JSON)
 
             When("정상적으로 삭제 된다면") {
 
@@ -85,8 +85,9 @@ class TodoListControllerTest : BehaviorSpec() {
                     service.delete(any())
                 } just runs
 
-                val call = given
-                    .delete("/v1/todo-list/{id}", "1")
+                val call =
+                    given
+                        .delete("/v1/todo-list/{id}", "1")
 
                 Then("204 상태 코드를 내려준다.") {
 

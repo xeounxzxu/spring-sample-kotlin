@@ -18,22 +18,23 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/v1/todo-list")
 class TodoListController(
-    private val service: TodoListService
+    private val service: TodoListService,
 ) {
-
     @GetMapping
     fun get(): TodoListAllResponse {
         return service.get().map {
             TodoListResponse.of(it)
         }.run {
             TodoListAllResponse.of(
-                this
+                this,
             )
         }
     }
 
     @GetMapping("/{id}")
-    fun getOne(@PathVariable id: Long): TodoListResponse {
+    fun getOne(
+        @PathVariable id: Long,
+    ): TodoListResponse {
         return service.getOne(id).run {
             TodoListResponse.of(this)
         }
@@ -41,18 +42,25 @@ class TodoListController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun save(@RequestBody request: TodoListRequest) {
+    fun save(
+        @RequestBody request: TodoListRequest,
+    ) {
         service.save(request.toModel())
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Long, @RequestBody request: TodoListRequest) {
+    fun update(
+        @PathVariable id: Long,
+        @RequestBody request: TodoListRequest,
+    ) {
         service.save(request.toModel())
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun remove(@PathVariable id: Long) {
+    fun remove(
+        @PathVariable id: Long,
+    ) {
         service.delete(id)
     }
 }

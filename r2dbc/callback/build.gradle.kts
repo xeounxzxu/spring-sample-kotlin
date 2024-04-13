@@ -6,7 +6,6 @@ tasks.getByName("jar") {
     enabled = false
 }
 
-
 dependencies {
     implementation(project(":r2dbc:data"))
 }

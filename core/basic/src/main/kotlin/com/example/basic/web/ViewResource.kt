@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class ViewResource {
-
     @GetMapping("/hello")
     fun shoByHello(model: Model): String {
         var tempDTO = TempDTO("vvv", "vvv2")
         model.addAttribute("user", tempDTO)
         return "hello"
     }
-
 }

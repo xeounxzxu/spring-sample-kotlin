@@ -6,8 +6,8 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication(
     scanBasePackages = [
-        "com.example.r2dbc"
-    ]
+        "com.example.r2dbc",
+    ],
 )
 @ConfigurationPropertiesScan
 class CallbackApplication

@@ -8,9 +8,7 @@ import reactor.core.publisher.Mono
 private val logger = LoggerFactory.getLogger(MultiRoutingConnectionFactory::class.java)
 
 class MultiRoutingConnectionFactory : AbstractRoutingConnectionFactory() {
-
     override fun determineCurrentLookupKey(): Mono<Any> {
-
         val transaction = TransactionSynchronizationManager.forCurrentTransaction()
 
         return transaction.flatMap {

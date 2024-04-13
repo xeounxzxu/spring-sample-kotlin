@@ -10,9 +10,7 @@ data class HelloDto(val kr: String = "안녕", val en: String = "hello")
 @RestController
 @RequestMapping("v1")
 class HelloController {
-
     @PublicAPI
     @GetMapping("hello")
     fun getHello(): HelloDto = HelloDto()
 }
-

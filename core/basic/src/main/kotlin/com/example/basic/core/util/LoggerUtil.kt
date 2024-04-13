@@ -5,7 +5,5 @@ import org.springframework.stereotype.Component
 
 @Component
 object LoggerUtil {
-
     val logger = KotlinLogging.logger {}
-
 }

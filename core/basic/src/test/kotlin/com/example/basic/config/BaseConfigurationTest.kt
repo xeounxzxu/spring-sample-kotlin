@@ -13,16 +13,15 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
 internal class BaseConfigurationTest {
-
     private var context: AnnotationConfigApplicationContext? = null
 
     @BeforeEach
     fun init() {
-
-        context = AnnotationConfigApplicationContext().apply {
-            this.scan("com.example.base.config.base")
-            this.refresh()
-        }
+        context =
+            AnnotationConfigApplicationContext().apply {
+                this.scan("com.example.base.config.base")
+                this.refresh()
+            }
     }
 
     @Test
@@ -35,7 +34,6 @@ internal class BaseConfigurationTest {
     @Test
     @Disabled
     fun `myItem Bean 등록 유무 체크`() {
-
         val myItem = context?.getBean("myItem") as Item
 
         Assertions.assertThat(myItem::class.java).isEqualTo(MyItem::class.java)
@@ -45,7 +43,6 @@ internal class BaseConfigurationTest {
     @Test
     @Disabled
     fun `otherItem Bean 등록 유무 체크`() {
-
         val myItem = context?.getBean("otherItem") as Item
 
         Assertions.assertThat(myItem::class.java).isEqualTo(OtherItem::class.java)

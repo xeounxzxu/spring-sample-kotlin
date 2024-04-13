@@ -6,7 +6,6 @@ tasks.getByName("jar") {
     enabled = false
 }
 
-
 dependencies {
 
     // kotest dependencies add
@@ -20,4 +19,3 @@ dependencies {
 
     testImplementation(project(":test:api-docs"))
 }
-

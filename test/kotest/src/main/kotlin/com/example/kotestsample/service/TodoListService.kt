@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class TodoListService {
-
     fun get(): List<TodoListModel> {
         return TodoListModel.getFaker()
     }

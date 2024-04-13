@@ -7,15 +7,20 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.Method
 
 class PublicRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
+    override fun getMappingForMethod(
+        method: Method,
+        handlerType: Class<*>,
+    ): RequestMappingInfo? = getMappingForPublicAPI(method, super.getMappingForMethod(method, handlerType))
 
-    override fun getMappingForMethod(method: Method, handlerType: Class<*>): RequestMappingInfo? =
-        getMappingForPublicAPI(method, super.getMappingForMethod(method, handlerType))
-
-    private fun getMappingForPublicAPI(method: Method, info: RequestMappingInfo?): RequestMappingInfo? {
-
-        val publicApi: PublicAPI? = AnnotatedElementUtils.findMergedAnnotation(
-            method, PublicAPI::class.java
-        )
+    private fun getMappingForPublicAPI(
+        method: Method,
+        info: RequestMappingInfo?,
+    ): RequestMappingInfo? {
+        val publicApi: PublicAPI? =
+            AnnotatedElementUtils.findMergedAnnotation(
+                method,
+                PublicAPI::class.java,
+            )
 
         return if (publicApi != null && info != null) {
             createdRequestMappingInfo(publicApi, method, info)
@@ -29,34 +34,33 @@ class PublicRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
     private fun createdRequestMappingInfo(
         publicApi: PublicAPI,
         method: Method,
-        info: RequestMappingInfo
+        info: RequestMappingInfo,
     ): RequestMappingInfo {
-
         val prefix = publicApi.prefix
         val isCoercionAble = publicApi.isCoercionAble
 
         return if (isCoercionAble) {
-
             RequestMappingInfo
                 .paths(prefix)
-                .options(RequestMappingInfo.BuilderConfiguration()
-                    .apply {
-                        this.setContentNegotiationManager(super.getContentNegotiationManager())
-                        this.patternParser = super.getPatternParser()
-                    })
+                .options(
+                    RequestMappingInfo.BuilderConfiguration()
+                        .apply {
+                            this.setContentNegotiationManager(super.getContentNegotiationManager())
+                            this.patternParser = super.getPatternParser()
+                        },
+                )
                 .build()
                 .combine(info)
-
         } else {
-
-            val requestMapping: RequestMapping = AnnotatedElementUtils.findMergedAnnotation(
-                method,
-                RequestMapping::class.java
-            )!!
+            val requestMapping: RequestMapping =
+                AnnotatedElementUtils.findMergedAnnotation(
+                    method,
+                    RequestMapping::class.java,
+                )!!
 
             val olds = info.patternValues
 
-            val news = olds.map { "${prefix}${it}" }.toMutableSet()
+            val news = olds.map { "${prefix}$it" }.toMutableSet()
 
             news.addAll(olds)
 
@@ -72,7 +76,7 @@ class PublicRequestMappingHandlerMapping : RequestMappingHandlerMapping() {
                         .apply {
                             this.setContentNegotiationManager(super.getContentNegotiationManager())
                             this.patternParser = super.getPatternParser()
-                        }
+                        },
                 )
                 .build()
         }

@@ -6,8 +6,8 @@ plugins {
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management")
     id("org.asciidoctor.jvm.convert") apply false
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
 }
-
 
 allprojects {
     group = "${property("projectGroup")}"
@@ -24,6 +24,7 @@ subprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "org.asciidoctor.jvm.convert")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -37,7 +38,6 @@ subprojects {
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
-
     }
 
     tasks.withType<KotlinCompile> {
@@ -50,5 +50,4 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-
 }

@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/v1/items")
 class ItemController(
-    private val service: ItemService
+    private val service: ItemService,
 ) {
-
     @GetMapping("/{id}")
-    suspend fun getOne(@PathVariable id: Long): ItemEntity {
+    suspend fun getOne(
+        @PathVariable id: Long,
+    ): ItemEntity {
         return checkNotNull(service.getOne(id))
     }
 }

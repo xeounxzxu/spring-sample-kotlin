@@ -3,12 +3,16 @@ package com.example.r2dbc.data
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 sealed interface BaseDataSourceProperties {
-
     fun driver(): String
+
     fun host(): String
+
     fun port(): Int
+
     fun database(): String
+
     fun username(): String
+
     fun password(): String
 }
 
@@ -21,7 +25,6 @@ data class ReadDataSourceProperties(
     private val username: String,
     private val password: String,
 ) : BaseDataSourceProperties {
-
     companion object {
         const val KEY = "read"
     }
@@ -48,7 +51,6 @@ data class WriteDataSourceProperties(
     private val username: String,
     private val password: String,
 ) : BaseDataSourceProperties {
-
     companion object {
         const val KEY = "write"
     }

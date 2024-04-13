@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class JasyptTest {
-
     private var jasypt: StandardPBEStringEncryptor? = null
 
     @Test
@@ -17,27 +16,24 @@ class JasyptTest {
 
     @BeforeEach
     fun before() {
-
         jasypt = StandardPBEStringEncryptor()
 
         jasypt!!.setPassword("test1")
 
         jasypt!!.setAlgorithm("PBEWithMD5AndDES")
-
     }
 
     @Test
     @DisplayName("jaspt 암복호화 테스트")
     final fun decodeTest() {
-
-        var array: Array<String> = arrayOf(
-            "a",
-            "v",
-            "c"
-        )
+        var array: Array<String> =
+            arrayOf(
+                "a",
+                "v",
+                "c",
+            )
 
         pritText(array, jasypt!!)
-
     }
 
     /**
@@ -46,7 +42,10 @@ class JasyptTest {
      * @param jasypt StandardPBEStringEncryptor
      * @return void
      */
-    private fun pritText(array: Array<String>, jasypt: StandardPBEStringEncryptor) {
+    private fun pritText(
+        array: Array<String>,
+        jasypt: StandardPBEStringEncryptor,
+    ) {
         for (encrypt in array) {
             val encryptedText = jasypt.encrypt(encrypt)
             val decryptText = jasypt.decrypt(encryptedText)
@@ -54,5 +53,4 @@ class JasyptTest {
             println("decode text :  $decryptText")
         }
     }
-
 }

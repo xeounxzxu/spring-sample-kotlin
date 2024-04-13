@@ -34,39 +34,38 @@ import java.time.Duration
 @EnableConfigurationProperties(
     value = [
         ReadDataSourceProperties::class,
-        WriteDataSourceProperties::class
-    ]
+        WriteDataSourceProperties::class,
+    ],
 )
 @EnableR2dbcRepositories(
     includeFilters = [
         ComponentScan.Filter(
             type = FilterType.ANNOTATION,
-            value = [R2dbcRepo::class]
-        )
+            value = [R2dbcRepo::class],
+        ),
     ],
     entityOperationsRef = "r2dbcEntityOperations",
-
-    )
+)
 class R2dbcDataSourceConfiguration(
     @Qualifier("read.datasource-com.example.r2dbc.data.ReadDataSourceProperties")
     private val readDataSourceProperties: BaseDataSourceProperties,
     @Qualifier("write.datasource-com.example.r2dbc.data.WriteDataSourceProperties")
     private val writeDataSourceProperties: BaseDataSourceProperties,
 ) : AbstractR2dbcConfiguration() {
-
     @Bean
-    override fun connectionFactory(): ConnectionFactory = MultiRoutingConnectionFactory()
-        .apply {
+    override fun connectionFactory(): ConnectionFactory =
+        MultiRoutingConnectionFactory()
+            .apply {
+                val factories: HashMap<String, ConnectionFactory> =
+                    hashMapOf(
+                        WriteDataSourceProperties.KEY to writeConnectionFactory(),
+                        ReadDataSourceProperties.KEY to readConnectionFactory(),
+                    )
 
-            val factories: HashMap<String, ConnectionFactory> = hashMapOf(
-                WriteDataSourceProperties.KEY to writeConnectionFactory(),
-                ReadDataSourceProperties.KEY to readConnectionFactory()
-            )
+                this.setTargetConnectionFactories(factories)
 
-            this.setTargetConnectionFactories(factories)
-
-            this.setDefaultTargetConnectionFactory(writeConnectionFactory())
-        }
+                this.setDefaultTargetConnectionFactory(writeConnectionFactory())
+            }
 
     @Bean(name = ["writeConnectionFactory"])
     fun writeConnectionFactory() = getConnectionFactory(properties = writeDataSourceProperties)
@@ -103,18 +102,16 @@ class R2dbcDataSourceConfiguration(
 
     @Bean
     fun r2dbcEntityOperations(connectionFactory: ConnectionFactory): R2dbcEntityOperations {
-
         val dialect = DialectResolver.getDialect(connectionFactory)
 
         val strategy = DefaultReactiveDataAccessStrategy(dialect)
 
-        val databaseClient = DatabaseClient.builder()
-            .connectionFactory(connectionFactory)
-            .bindMarkers(dialect.bindMarkersFactory)
-            .build()
+        val databaseClient =
+            DatabaseClient.builder()
+                .connectionFactory(connectionFactory)
+                .bindMarkers(dialect.bindMarkersFactory)
+                .build()
 
         return R2dbcEntityTemplate(databaseClient, strategy)
     }
 }
-
-

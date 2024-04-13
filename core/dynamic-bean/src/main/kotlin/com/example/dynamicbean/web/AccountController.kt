@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/v1/account")
 class AccountController(
-    private val accountService: AccountFactoryService
+    private val accountService: AccountFactoryService,
 ) {
-
     @GetMapping
     fun getAccount(type: AccountType): List<AccountModel> {
         return accountService.getList(type)

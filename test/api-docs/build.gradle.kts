@@ -15,11 +15,9 @@ dependencies {
     api("org.springframework.restdocs:spring-restdocs-restassured")
     api("io.rest-assured:spring-mock-mvc")
 
-
     // kotest dependencies add
     implementation("io.kotest:kotest-runner-junit5-jvm:${property("kotestVersion")}")
     implementation("io.kotest:kotest-assertions-core-jvm:${property("kotestVersion")}")
     implementation("io.kotest:kotest-property:${property("kotestVersion")}")
     implementation("io.kotest.extensions:kotest-extensions-spring:${property("extensionsSpringVersion")}")
-
 }
