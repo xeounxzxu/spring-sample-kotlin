@@ -6,13 +6,10 @@ import com.example.dynamicbean.service.dto.AccountModel
 import com.example.dynamicbean.service.dto.AccountType
 import org.springframework.stereotype.Service
 
-@Service("accountService")
-class AccountFactoryService(accountService: List<AccountService>) {
-    private val serviceMap: Map<AccountType, AccountService> =
-        accountService.associateBy { it.getAccountType() }
-
+@Service
+class AccountFactoryService(private val accountFactory: Map<AccountType, AccountService>) {
     fun getList(accountType: AccountType): List<AccountModel> {
-        return requireNotNull(serviceMap[accountType]).getList()
+        return requireNotNull(accountFactory[accountType]).getList()
     }
 }
 
