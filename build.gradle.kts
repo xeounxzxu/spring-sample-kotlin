@@ -1,12 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.spring") apply false
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management")
     id("org.asciidoctor.jvm.convert") apply false
+//    id("org.jetbrains.kotlin.plugin.allopen")  // TODO(변경_포인트)
     id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    kotlin("jvm")
+    kotlin("kapt") apply false
+    kotlin("plugin.spring") apply false
+    kotlin("plugin.allopen") apply false
+    idea
 }
 
 allprojects {
@@ -19,12 +23,15 @@ allprojects {
 }
 
 subprojects {
+
+    apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "org.asciidoctor.jvm.convert")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "org.jetbrains.kotlin.kapt")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
