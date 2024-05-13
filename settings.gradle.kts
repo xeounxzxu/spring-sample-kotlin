@@ -19,6 +19,10 @@ include(
 )
 
 include(
+    ":querydsl:open-feign-api"
+)
+
+include(
     ":support:test-restdocs",
 )
 
