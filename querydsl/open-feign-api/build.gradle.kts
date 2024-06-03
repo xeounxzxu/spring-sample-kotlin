@@ -14,6 +14,10 @@ dependencies {
     // https://mvnrepository.com/artifact/io.github.openfeign.querydsl/querydsl-jpa
     implementation("io.github.openfeign.querydsl:querydsl-jpa:6.3")
     kapt("io.github.openfeign.querydsl:querydsl-apt:6.3:jpa")
+
+    // mysql
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 
