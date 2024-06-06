@@ -4,6 +4,7 @@ include(
     ":core:basic",
     ":core:dynamic-bean",
     ":core:virtual-thread",
+    ":core:samplecode"
 )
 
 include(
