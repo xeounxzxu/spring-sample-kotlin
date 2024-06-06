@@ -2,8 +2,8 @@ rootProject.name = "kotlin-core"
 
 include(
     ":core:basic",
-    ":core:dynamic-bean",
-    ":core:virtual-thread",
+    ":core:dynamicbean",
+    ":core:virtualthread",
     ":core:samplecode"
 )
 
@@ -23,9 +23,7 @@ include(
     ":querydsl:open-feign-api"
 )
 
-include(
-    ":support:test-restdocs",
-)
+include(":components")
 
 pluginManagement {
     val kotlinVersion: String by settings
