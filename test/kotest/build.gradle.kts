@@ -17,5 +17,5 @@ dependencies {
     // mockk dependencies add
     testImplementation("io.mockk:mockk:1.13.9")
 
-    testImplementation(project(":test:api-docs"))
+    testImplementation(project(":test:apidocs"))
 }

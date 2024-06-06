@@ -16,11 +16,11 @@ include(
 include(
     ":test",
     ":test:kotest",
-    ":test:api-docs",
+    ":test:apidocs",
 )
 
 include(
-    ":querydsl:open-feign-api"
+    ":querydsl:openfeign"
 )
 
 include(":components")
