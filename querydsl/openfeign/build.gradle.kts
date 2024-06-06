@@ -20,7 +20,6 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.33")
 }
 
-
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.Embeddable")

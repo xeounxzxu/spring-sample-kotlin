@@ -4,7 +4,7 @@ include(
     ":core:basic",
     ":core:dynamicbean",
     ":core:virtualthread",
-    ":core:samplecode"
+    ":core:samplecode",
 )
 
 include(
@@ -20,7 +20,7 @@ include(
 )
 
 include(
-    ":querydsl:openfeign"
+    ":querydsl:openfeign",
 )
 
 include(":components")

@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository
 @Repository
 interface UserRepository : JpaRepository<UserEntity, Long>, CustomUserRepository
 
-interface CustomUserRepository {
-}
+interface CustomUserRepository
 
-class CustomUserRepositoryImpl : CustomUserRepository {
-}
+class CustomUserRepositoryImpl : CustomUserRepository

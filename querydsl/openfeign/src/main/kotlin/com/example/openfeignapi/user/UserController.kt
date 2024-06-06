@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/v1")
-class UserController (
-    private val userRepository: UserRepository
-){
-
+class UserController(
+    private val userRepository: UserRepository,
+) {
     @GetMapping("users")
     fun getUsers(): List<UserEntity> {
         return userRepository.findAll()
