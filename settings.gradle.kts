@@ -23,7 +23,11 @@ include(
     ":querydsl:openfeign",
 )
 
-include(":components")
+include(
+    ":components",
+    ":components:yamlreader",
+    ":components:jpa"
+)
 
 pluginManagement {
     val kotlinVersion: String by settings
