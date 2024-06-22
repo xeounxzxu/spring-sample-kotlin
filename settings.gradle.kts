@@ -8,25 +8,7 @@ include(
 )
 
 include(
-    ":r2dbc",
-    ":r2dbc:callback",
-    ":r2dbc:data",
-)
-
-include(
-    ":test",
-    ":test:kotest",
-    ":test:apidocs",
-)
-
-include(
     ":querydsl:openfeign",
-)
-
-include(
-    ":components",
-    ":components:yamlreader",
-    ":components:jpa"
 )
 
 pluginManagement {
