@@ -1,5 +1,5 @@
-#server:
-#  port: 5050
+server:
+  port: 5050
 
 #### thymeleaf Setting
 #thymeleaf:

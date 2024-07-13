@@ -12,5 +12,8 @@ data class HelloDto(val kr: String = "안녕", val en: String = "hello")
 class HelloController {
     @PublicAPI
     @GetMapping("hello")
-    fun getHello(): HelloDto = HelloDto()
+    fun getHello(): HelloDto {
+        Thread.sleep(1000L) // 1 초
+        return HelloDto()
+    }
 }
