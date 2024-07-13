@@ -5,6 +5,7 @@ include(
     ":core:dynamicbean",
     ":core:virtualthread",
     ":core:samplecode",
+    ":core:client"
 )
 
 include(
