@@ -9,8 +9,13 @@ include(
 )
 
 include(
+    ":redis:liveredismode",
+)
+
+include(
     ":querydsl:openfeign",
 )
+
 
 pluginManagement {
     val kotlinVersion: String by settings
