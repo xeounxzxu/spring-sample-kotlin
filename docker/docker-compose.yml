@@ -1,7 +1,8 @@
 version: '3'
 services:
-  mysql:
+  mysql_kotlin_core:
     image: arm64v8/mysql
+    container_name: mysql_kotlin_core
     restart: always
     ports:
       - "23306:3306"
@@ -11,8 +12,20 @@ services:
       MYSQL_DATABASE: default
       MYSQL_USER: default
       MYSQL_PASSWORD: 1234
-    container_name: "mysql_db1"
     volumes:
       - ./db1/mysql:/var/lib/mysqlysql
       # init.sql
       - ./db1/sql:/docker-entrypoint-initdb.d
+  redis_kotlin_core:
+      image: redis:latest
+      container_name: redis_kotlin_core
+      ports:
+          - 6379:6379
+      volumes:
+          - ./redis/data:/data
+          - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
+      labels:
+          - "name=redis"
+          - "mode=standalone" # redis mode
+      restart: always
+      command: redis-server /usr/local/conf/redis.conf

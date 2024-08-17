@@ -9,3 +9,5 @@ class LiveRedisModeApplication
 fun main(args: Array<String>) {
     runApplication<LiveRedisModeApplication>(*args)
 }
+
+
