@@ -25,4 +25,7 @@ dependencies {
 
     // jpa
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    // jboss-logging
+    implementation("org.jboss.logging:jboss-logging:3.4.1.Final")
 }
