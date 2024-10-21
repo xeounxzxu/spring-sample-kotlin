@@ -18,4 +18,10 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.18.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.0")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.0")
+
+    // https://mvnrepository.com/artifact/io.projectreactor/reactor-core
+    implementation("io.projectreactor:reactor-core:3.6.11")
+
+    // https://mvnrepository.com/artifact/io.projectreactor/reactor-test
+    testImplementation("io.projectreactor:reactor-test:3.1.0.RELEASE")
 }
