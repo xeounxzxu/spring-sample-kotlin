@@ -1,44 +1,43 @@
 package com.example.client.config
 
 import com.example.client.service.Response
+import com.fasterxml.jackson.databind.ObjectMapper
 import java.lang.reflect.Method
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
-import org.springframework.core.ParameterizedTypeReference
 import org.springframework.stereotype.Component
-
-//val objectMapper: ObjectMapper = ObjectMapper().registerModule(KotlinModule())
 
 @Aspect
 @Component
-class AopExecutionAspect {
-
-    val responseType = object : ParameterizedTypeReference<Response<*>>()
+class AopExecutionAspect(
+    private val objectMapper: ObjectMapper
+) {
 
     @Around("@annotation(com.example.client.config.AopExecution)")
     fun logAround(joinPoint: ProceedingJoinPoint): Response<*> {
 
         // 메서드 실행 전
         // 메서드 실행 전: 파라미터 이름과 값 가져오기
-        val methodName = joinPoint.signature.name
         val method = getMethod(joinPoint)
+        val aopExecution = method?.getAnnotation(AopExecution::class.java)
         val parameterNames = method?.parameters?.map { it.name }
         val args = joinPoint.args
 
-        println("Before executing method: $methodName")
+        val isUse = parameterNames?.indexOfFirst { it == aopExecution?.isUseName }?.let {
+            args[it] as Boolean
+        } ?: false
 
-        val index = parameterNames?.indexOfFirst { it == "isUse" }
-        val index2 = parameterNames?.indexOfFirst { it == "requestString" }
-
-        val isUse = index?.let { args[it] } as Boolean
-        val requestString = index2?.let { args[it] } ?: ""
+        // ObjectPassing
+        val requestString = parameterNames?.indexOfFirst { it == aopExecution?.requestStringName }?.let {
+            args[it] as String
+        } ?: ""
 
         if (isUse) {
             return Response(common = "", 1L)
         }
 
-        // 메서드 실행
+        // 메서드 실행 및 예외 처리
         return try {
             joinPoint.proceed() as Response<*>
         } catch (e: Exception) {
@@ -56,6 +55,3 @@ class AopExecutionAspect {
         return null
     }
 }
-
-
-//inline fun <reified T> ObjectMapper.readValue(s: String): T = this.readValue(s, object : TypeReference<T>() {})
