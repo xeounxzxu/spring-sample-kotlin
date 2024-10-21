@@ -45,9 +45,9 @@ class ClientConfig {
         val httpClient =
             HttpClient.create()
                 .doOnConnected { conn: Connection ->
-                    conn.addHandlerFirst(
-                        ReadTimeoutHandler(500, TimeUnit.MILLISECONDS)
-                    )
+//                    conn.addHandlerFirst(
+//                        ReadTimeoutHandler(500, TimeUnit.MILLISECONDS)
+//                    )
                 }
 //                .doOnChannelInit { observer: ConnectionObserver?, channel: Channel, remoteAddress: SocketAddress? ->
 //                    channel.pipeline()
@@ -63,7 +63,7 @@ class ClientConfig {
             .apply {
                 // Subscribe to this Mono and block until a next signal is received or a timeout expires.
                 // 이 모노를 구독하고 다음 신호가 수신되거나 타임아웃이 만료될 때까지 차단하세요.
-                blockTimeout = Duration.ofMillis(1000)
+                blockTimeout = Duration.ofMillis(500)
             }
 
         val builderFor = HttpServiceProxyFactory.builderFor(create)
