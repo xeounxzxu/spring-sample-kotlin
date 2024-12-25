@@ -18,6 +18,9 @@ interface HelloClient {
 
     @GetExchange("/v1/hello")
     fun getHello(): HelloDto
+
+    @GetExchange("/v1/hello2")
+    fun getHello2(): HelloDto
 }
 
 
@@ -63,7 +66,7 @@ class ClientConfig {
             .apply {
                 // Subscribe to this Mono and block until a next signal is received or a timeout expires.
                 // 이 모노를 구독하고 다음 신호가 수신되거나 타임아웃이 만료될 때까지 차단하세요.
-                blockTimeout = Duration.ofMillis(500)
+                blockTimeout = Duration.ofMillis(1000)
             }
 
         val builderFor = HttpServiceProxyFactory.builderFor(create)
