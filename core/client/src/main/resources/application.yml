@@ -1,15 +1,3 @@
-#server:
-#  port: 5050
-
-#### thymeleaf Setting
-#thymeleaf:
-#  mode: HTML
-#  prefix: classpath:templates/
-#  suffix: .html
-#  cache: false
-#  check-template-location: true
-#  character-encoding: UTF-8
-
 spring:
   # characterEncodingFilter Bean 설정시 옵션 변경
 #  main:
@@ -34,12 +22,13 @@ spring:
     open-in-view: false
 
 # Statistics Logger
-logging:
-  level:
-    root: debug
-    org:
-      hibernate.type.descriptor.sql.BasicBinder: TRACE
 
+#logging:
+#  level:
+#    root: debug
+#    org:
+#      hibernate.type.descriptor.sql.BasicBinder: TRACE
+#
 
 
 

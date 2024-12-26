@@ -1,11 +1,10 @@
 package com.example.client.clients
 
-import io.netty.handler.timeout.ReadTimeoutHandler
 import java.time.Duration
-import java.util.concurrent.TimeUnit
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.support.WebClientAdapter
 import org.springframework.web.service.annotation.GetExchange
@@ -20,7 +19,10 @@ interface HelloClient {
     fun getHello(): HelloDto
 
     @GetExchange("/v1/hello2")
-    fun getHello2(): HelloDto
+    fun getHello2(
+        @RequestParam(name = "num")
+        num: Int? = null
+    ): HelloDto
 }
 
 

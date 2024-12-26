@@ -1,40 +1,39 @@
 package com.example.client.web
 
-import com.example.client.clients.HelloClient
 import com.example.client.clients.HelloDto
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.runBlocking
+import com.example.client.service.HelloService
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
+private val log = KotlinLogging.logger {}
+
 @RestController
 @RequestMapping("/conn")
 class ConnectionController(
-    private val helloClient: HelloClient
+    private val helloService: HelloService
 ) {
 
     @GetMapping
     fun getHello(): HelloDto {
-        return helloClient.getHello()
+        return helloService.getOne()
     }
 
     @GetMapping("async")
     fun getHelloList(): List<HelloDto> {
+        val data = helloService.getList()
+        log.info { "work list" }
+        return data
+    }
 
-        return runBlocking {
-            listOf(
-                async {
-                    helloClient.getHello()
-                },
-                async {
-                    helloClient.getHello2()
-                }
-            ).awaitAll()
-        }
+    @GetMapping("async2")
+    fun getHelloReturnVoid() {
+        log.info { "hello return void work" }
+        helloService.getListWithWorkerThread()
+        log.info { "hello return void" }
     }
 }
 

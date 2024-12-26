@@ -39,6 +39,9 @@ subprojects {
 
     dependencies {
 
+        // MacOS Silicon 라이브러리 누락 문제
+        runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.104.Final:osx-aarch_64")
+
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
