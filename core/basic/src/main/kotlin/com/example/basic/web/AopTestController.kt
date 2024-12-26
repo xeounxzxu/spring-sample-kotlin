@@ -1,8 +1,9 @@
-package com.example.client.web
+package com.example.basic.web
 
-import com.example.client.service.AopTestService
-import com.example.client.service.Response
-import com.example.client.service.ReturnData
+
+import com.example.basic.service.AopTestService
+import com.example.basic.service.Response
+import com.example.basic.service.ReturnData
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

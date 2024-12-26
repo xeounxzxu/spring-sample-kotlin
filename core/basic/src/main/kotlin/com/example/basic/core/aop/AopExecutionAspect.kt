@@ -1,6 +1,6 @@
-package com.example.client.config
+package com.example.basic.core.aop
 
-import com.example.client.service.Response
+import com.example.basic.service.Response
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.lang.reflect.Method
 import org.aspectj.lang.ProceedingJoinPoint
@@ -14,7 +14,7 @@ class AopExecutionAspect(
     private val objectMapper: ObjectMapper
 ) {
 
-    @Around("@annotation(com.example.client.config.AopExecution)")
+    @Around("@annotation(com.example.basic.core.aop.AopExecution)")
     fun logAround(joinPoint: ProceedingJoinPoint): Response<*> {
 
         // 메서드 실행 전

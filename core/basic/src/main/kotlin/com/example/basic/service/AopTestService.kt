@@ -1,6 +1,6 @@
-package com.example.client.service
+package com.example.basic.service
 
-import com.example.client.config.AopExecution
+import com.example.basic.core.aop.AopExecution
 import org.springframework.stereotype.Service
 
 @Service
