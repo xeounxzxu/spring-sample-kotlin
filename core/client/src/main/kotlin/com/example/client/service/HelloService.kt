@@ -1,7 +1,7 @@
 package com.example.client.service
 
 import com.example.client.clients.HelloClient
-import com.example.client.clients.HelloDto
+import com.example.client.clients.dto.HelloDto
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

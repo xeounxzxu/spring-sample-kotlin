@@ -1,4 +1,4 @@
-package com.example.client.clients
+package com.example.client.config
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
