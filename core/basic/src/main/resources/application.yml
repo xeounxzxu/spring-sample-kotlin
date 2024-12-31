@@ -1,5 +1,5 @@
-server:
-  port: 5050
+#server:
+#  port: 5050
 
 #### thymeleaf Setting
 #thymeleaf:
@@ -34,11 +34,11 @@ spring:
     open-in-view: false
 
 # Statistics Logger
-logging:
-  level:
-    root: debug
-    org:
-      hibernate.type.descriptor.sql.BasicBinder: TRACE
+#logging:
+#  level:
+#    root: debug
+#    org:
+#      hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 
 
