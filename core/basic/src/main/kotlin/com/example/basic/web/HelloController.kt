@@ -16,7 +16,7 @@ class HelloController {
     @GetMapping("hello")
     fun getHello(): HelloDto {
         log.info { "work hello api" }
-        if (1 == 1) throw IllegalArgumentException("test success")
+//        if (1 == 1) throw IllegalArgumentException("test success")
 
         Thread.sleep(5000L) // 1 초
 

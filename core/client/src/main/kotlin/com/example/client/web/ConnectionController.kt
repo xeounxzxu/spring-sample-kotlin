@@ -28,7 +28,7 @@ class ConnectionController(
 
     @GetMapping("test1")
     fun getHelloList2() {
-        helloService.getListWithThread()
+//        helloService.getListWithThread()
     }
 
     @GetMapping("async2")
