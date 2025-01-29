@@ -6,7 +6,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
 
@@ -26,17 +25,9 @@ class HelloService(
 
     fun getList() {
         runBlocking {
-            try {
-                coroutineScope {
-                    val job1 = async(Dispatchers.IO) { helloClient.getHello() }
-                    val job2 = async(Dispatchers.IO) { helloClient.getHello2() }
-
-                    listOf(job1, job2).awaitAll() // 하나라도 예외 발생 시 즉시 취소
-                }
-            } catch (e: Exception) {
-                println("Exception occurred: ${e.message}")
-                throw e
-            }
+            val job1 = async(Dispatchers.IO) { helloClient.getHello() }
+            val job2 = async(Dispatchers.IO) { helloClient.getHello2() }
+            listOf(job1, job2).awaitAll()
         }
     }
 
