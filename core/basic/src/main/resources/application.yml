@@ -1,5 +1,9 @@
-#server:
-#  port: 5050
+server:
+  port: 5050
+  tomcat:
+    threads:
+      max: 200  # 최대 스레드 수
+      min-spare: 10  # 최소 유휴(Idle) 스레드 수
 
 #### thymeleaf Setting
 #thymeleaf:

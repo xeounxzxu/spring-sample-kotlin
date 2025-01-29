@@ -20,11 +20,15 @@ class ConnectionController(
         return helloService.getOne()
     }
 
-    @GetMapping("async")
-    fun getHelloList(): List<HelloDto> {
-        val data = helloService.getList()
-        log.info { "work list" }
-        return data
+    @GetMapping("test2")
+    fun getHelloList() {
+        helloService.getList()
+    }
+
+
+    @GetMapping("test1")
+    fun getHelloList2() {
+        helloService.getListWithThread()
     }
 
     @GetMapping("async2")

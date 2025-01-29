@@ -12,7 +12,7 @@ interface HelloClient {
 
     @GetExchange("/v1/hello2")
     fun getHello2(
-        @RequestParam(name = "num")
+        @RequestParam(name = "num", required = false)
         num: Int? = null
     ): HelloDto
 }

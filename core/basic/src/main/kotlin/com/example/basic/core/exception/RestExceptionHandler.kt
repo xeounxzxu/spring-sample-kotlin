@@ -12,6 +12,18 @@ class RestExceptionHandler constructor(
     private val i18nMsgUtil: I18nMsgUtil,
     private val loggerUtil: LoggerUtil,
 ) {
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(
+        value = [
+            IllegalArgumentException::class
+        ]
+    )
+    fun error(ex: IllegalArgumentException): String {
+        ex.printStackTrace()
+        return "error"
+    }
+
     // Exception Handler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception::class)
