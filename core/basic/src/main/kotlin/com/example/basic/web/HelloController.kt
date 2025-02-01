@@ -16,9 +16,8 @@ class HelloController {
     @GetMapping("hello")
     fun getHello(): HelloDto {
         log.info { "work hello api" }
-        if (1 == 1) throw IllegalArgumentException("test success")
 
-        Thread.sleep(5000L) // 1 초
+        Thread.sleep(3000L) // 1 초
 
         log.info {
             "work hello1"
@@ -33,7 +32,8 @@ class HelloController {
             1 -> throw IllegalArgumentException()
             2 -> Thread.sleep(500L)
             3 -> Thread.sleep(900L)
-            else -> Thread.sleep(10000L)
+//            else -> Thread.sleep(10000L)
+            else -> Thread.sleep(5000L)
         }
         return HelloDto(kr = "안녕2", en = "hello2")
     }
