@@ -11,6 +11,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4")
     implementation("org.springframework.boot:spring-boot-starter-aop")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 //    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
 //    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.0")

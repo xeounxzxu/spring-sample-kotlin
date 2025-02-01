@@ -34,7 +34,7 @@ class ConnectionController(
     @GetMapping("async2")
     fun getHelloReturnVoid() {
         log.info { "hello return void work" }
-        helloService.getListWithWorkerThread()
+//        helloService.get()
         log.info { "hello return void" }
     }
 }
