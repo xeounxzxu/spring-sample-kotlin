@@ -5,7 +5,7 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.runBlocking
 import org.springframework.stereotype.Service
 
@@ -24,14 +24,17 @@ class HelloService(
     }
 
     fun getList() {
+        log.info { "getList" }
         runBlocking {
-            coroutineScope {
                 val job1 = async(Dispatchers.IO) {
+                    log.info { "work1" }
                     helloClient.getHello()
                 }
-                val job2 = async(Dispatchers.IO) { helloClient.getHello2() }
-                listOf(job1, job2).forEach { it.await() }
+            val job2 = async(Dispatchers.IO) {
+                log.info { "work2" }
+                helloClient.getHello2()
             }
+            listOf(job1, job2).awaitAll()
         }
     }
 
