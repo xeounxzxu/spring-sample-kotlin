@@ -27,22 +27,16 @@ class HelloService(
     }
 
     fun getList() {
-        log.info { "getList" }
         runBlocking {
             coroutineScope {
                 val jobs = listOf(
-
                     async(Dispatchers.IO) {
-                        log.info { "work1" }
                         helloClient.getHello()
                     },
-
                     async(Dispatchers.IO) {
-                        log.info { "work2" }
                         helloClient2.getHello2()
                     }
                 )
-
                 jobs.awaitAll()
             }
         }
