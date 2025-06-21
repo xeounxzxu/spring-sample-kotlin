@@ -27,13 +27,16 @@ class HelloService(
     }
 
     fun getList() {
+        log.info { "main thread" }
         runBlocking {
             coroutineScope {
                 val jobs = listOf(
-                    async(Dispatchers.IO) {
+                    async(Dispatchers.Main) {
+                        log.info { "Getting hello world 1" }
                         helloClient.getHello()
                     },
-                    async(Dispatchers.IO) {
+                    async(Dispatchers.Main) {
+                        log.info { "Getting hello world 2" }
                         helloClient2.getHello2()
                     }
                 )
