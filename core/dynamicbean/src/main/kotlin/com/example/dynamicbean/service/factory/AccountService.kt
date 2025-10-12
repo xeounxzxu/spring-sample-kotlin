@@ -1,9 +1,9 @@
-package com.example.dynamicbean.service
+package com.example.dynamicbean.service.factory
 
-import com.example.dynamicbean.service.AccountFaker.getStockAccounts
-import com.example.dynamicbean.service.AccountFaker.getTotalAccounts
-import com.example.dynamicbean.service.dto.AccountModel
-import com.example.dynamicbean.service.dto.AccountType
+import com.example.dynamicbean.service.factory.AccountFaker.getStockAccounts
+import com.example.dynamicbean.service.factory.AccountFaker.getTotalAccounts
+import com.example.dynamicbean.service.factory.dto.AccountModel
+import com.example.dynamicbean.service.factory.dto.AccountType
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,4 +1,4 @@
-package com.example.dynamicbean.service.dto
+package com.example.dynamicbean.service.factory.dto
 
 data class AccountModel(
     val accountNumber: String,

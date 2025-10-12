@@ -1,7 +1,7 @@
 package com.example.dynamicbean.config
 
 import com.example.dynamicbean.service.AccountService
-import com.example.dynamicbean.service.dto.AccountType
+import com.example.dynamicbean.service.factory.dto.AccountType
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
